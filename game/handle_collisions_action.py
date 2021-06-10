@@ -15,9 +15,9 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        marquee = cast["marquee"][0] # there's only one
-        robot = cast["robot"][0] # there's only one
-        artifacts = cast["artifact"]
+        marquee = cast["ball"][0] # there's only one
+        robot = cast["paddle"][0] # there's only one
+        artifacts = cast["brick"]
         marquee.set_text("")
         for artifact in artifacts:
             if robot.get_position().equals(artifact.get_position()):

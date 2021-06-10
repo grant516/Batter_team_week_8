@@ -21,9 +21,9 @@ class DrawActorsAction(Action):
                 if not actor.get_velocity().is_zero():
                     self._move_actor(actor)"""
 
-        self._output_service.draw_actors(cast["marquee"])
-        self._output_service.draw_actors(cast["robot"])
-        self._output_service.draw_actors(cast["artifact"])
+        self._output_service.draw_actors(cast["ball"])
+        self._output_service.draw_actors(cast["paddle"])
+        self._output_service.draw_actors(cast["brick"])
         
 
         self._output_service.flush_buffer() #updates the new things on the screen
