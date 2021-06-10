@@ -45,7 +45,7 @@ def main(screen):
     
     # create the script {key: tag, value: list}
     script = {}
-
+ 
     input_service = InputService(screen)
     output_service = OutputService(screen)
     control_actors_action = ControlActorsAction(input_service)
