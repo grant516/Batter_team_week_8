@@ -22,7 +22,8 @@ class InputService:
         self._keys[97] = Point(-1, 0) # a
         self._keys[100] = Point(1, 0) # d
 
-        self._direction = Point(1, 0)
+        self._direction = Point(0, 0)
+        self._switch_direction = True
         
     def set_direction(self, direction):
         self._direction = direction
@@ -39,9 +40,11 @@ class InputService:
         if isinstance(event, KeyboardEvent):
             if event.key_code == 27:
                 sys.exit()
-            elif(event.key_code == 97):
+            elif(event.key_code == 32 and self._switch_direction):
                 self._direction = Point(-1, 0)
-            elif(event.key_code == 100):
+                self._switch_direction = False
+            elif(event.key_code == 32):
                 self._direction = Point(1, 0)
+                self._switch_direction = True
             #self._direction = self._keys.get(event.key_code, Point(0, 0))
         return self._direction
