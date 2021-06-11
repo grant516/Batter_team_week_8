@@ -21,17 +21,27 @@ class InputService:
         #self._keys[115] = Point(0, 1) # s
         self._keys[97] = Point(-1, 0) # a
         self._keys[100] = Point(1, 0) # d
+
+        self._direction = Point(1, 0)
         
+    def set_direction(self, direction):
+        self._direction = direction
+
+
     def get_direction(self):
         """Gets the selected direction for the given player.
 
         Returns:
             Point: The selected direction.
         """
-        direction = Point(0, 0)
+        
         event = self._screen.get_event()
         if isinstance(event, KeyboardEvent):
             if event.key_code == 27:
                 sys.exit()
-            direction = self._keys.get(event.key_code, Point(0, 0))
-        return direction
+            elif(event.key_code == 97):
+                self._direction = Point(-1, 0)
+            elif(event.key_code == 100):
+                self._direction = Point(1, 0)
+            #self._direction = self._keys.get(event.key_code, Point(0, 0))
+        return self._direction

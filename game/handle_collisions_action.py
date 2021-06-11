@@ -81,3 +81,10 @@ class HandleCollisionsAction(Action):
             ball.set_text("")
             val = Point(0,0)
             ball.set_velocity(val)
+
+        if(paddle_spot.get_x()-1 == 0):
+            vel1 = Point(1,0)
+            paddle.set_velocity(vel1)
+        elif(paddle_spot.get_x()+len(paddle.get_text())+1 >= constants.MAX_X):
+            vel2 = Point(-1,0)
+            paddle.set_velocity(vel2)
