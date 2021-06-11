@@ -19,8 +19,10 @@ def main(screen):
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y - 1)
     position = Point(x, y)
+    velocity2 = Point(1, 0)
     paddle = Actor()
     paddle.set_text("===========")
+    paddle.set_velocity(velocity2)
     paddle.set_position(position)
     cast["paddle"] = [paddle]
 
